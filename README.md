@@ -1,7 +1,15 @@
 # Invitae - Cohort Analysis
 ### Applicant - Samantha Buck
 -------------------------------------
-#### Objective
+## Table of Contents
+1. [Objective](#objective)
+2. [Methods](#methods)
+3. [Analysis](#analysis)
+4. [Final Words](#final-words) 
+
+--------------------------------  
+
+## Objective
 **Goal** 
 We would like to perform a cohort analysis on our customers to help identify changes in ordering behavior based on their signup date.  
 > Using the two CSV files: customers.csv and orders.csv
@@ -9,7 +17,9 @@ We would like to perform a cohort analysis on our customers to help identify cha
 For this exercise group the customers into week long (7 days) cohorts and then calculate how many distinct customers ordered within X days from their signup date, where X is a multiple of 7. Older cohorts will have more buckets: 0-6 days, 7-13 days, 14-20 days, etc.   
 
 ----------------------------  
-#### Methods
+## Methods 
+Please follow along in this [jupyter notebook](notebooks/Cohort-Analysis-Samantha-Buck.ipynb).  
+
 **Import Data, Check Cleanliness, Understanding Features**
 1. Import both csv files
 2. Change any date columns to DateTime
@@ -46,38 +56,35 @@ For this exercise group the customers into week long (7 days) cohorts and then c
 **Create New Dataframe**
 1. Create a new dataframe with the columns: ```Cohort```, ```Customers```, ```0-6 Day```, ```7-13 Days```, ... and so on for each of the 7-Day time periods.
 2. Each row is a distinct cohort listing the number of customers who registered during that time, the number/perfecntage of orderers for each 7-day period, and the number of first-time orders for each 7-day period. 
-3. Clean up the dataframe and save to a csv file.
+3. Clean up the dataframe and save to a csv [file](data/cohort_analysis.csv).
 
-|   | Cohort        | Customers | 0-6 Days                               | 7-13 Days                          | 14-20 Days                         |
-|---|---------------|-----------|----------------------------------------|------------------------------------|------------------------------------|
-| 0 | 07/02 - 07/08 | 983.0     | 14% orderers(136), 14% first-time(136) |                                    |                                    |
-| 1 | 06/25 - 07/01 | 781.0     | 16% orderers(123), 16% first-time(123) | 3% orderers(23), 2% first-time(12) |                                    |
-| 2 | 06/18 - 06/24 | 946.0     | 18% orderers(168), 18% first-time(168) | 5% orderers(44), 2% first-time(16) | 2% orderers(15), 0% first-time(3)  |
-| 3 | 06/11 - 06/17 | 1066.0    | 17% orderers(177), 17% first-time(177) | 5% orderers(51), 2% first-time(18) | 4% orderers(46), 1% first-time(11) |
-| 4 | 06/04 - 06/10 | 858.0     | 14% orderers(121), 14% first-time(121) | 5% orderers(39), 2% first-time(19) | 4% orderers(37), 1% first-time(8)  |
-| 5 | 05/28 - 06/03 | 972.0     | 15% orderers(148), 15% first-time(148) | 5% orderers(48), 1% first-time(12) | 5% orderers(48), 2% first-time(18) |
-| 6 | 05/21 - 05/27 | 917.0     | 15% orderers(140), 15% first-time(140) | 6% orderers(52), 2% first-time(22) | 5% orderers(47), 1% first-time(11) |
-| 7 | 05/14 - 05/20 | 630.0     | 16% orderers(99), 16% first-time(100)  | 4% orderers(27), 2% first-time(12) | 5% orderers(33), 1% first-time(9)  |
-| 8 | 05/07 - 05/13 | 721.0     | 14% orderers(102), 14% first-time(102) | 5% orderers(39), 2% first-time(17) | 4% orderers(27), 1% first-time(4)  |
-| 9 | 04/30 - 05/06 | 706.0     | 16% orderers(115), 16% first-time(115) | 5% orderers(35), 2% first-time(13) | 5% orderers(32), 1% first-time(6)  |  
+|   | Cohort        | Customers | 0-6 Days                               | 7-13 Days                          | 14-20 Days                         | 15-27 Days                         | 28-34 Days                        | 35-41 Days                        | 42-48 Days | 49-55 Days | 56-62 Days | 63-69 Days | 70-76 Days | 77-83 Days | 85-90 Days | 91-97 Days | 98-104 Days | 105-111 Days | 112-118 Days | 119-125 Days | 126-132 Days | 133-139 Days | 140-146 Days | 147-153 Days | 154-160 Days | 161-167 Days | 168-174 Days | 175-181 Days | 182-188 Days |
+|---|---------------|-----------|----------------------------------------|------------------------------------|------------------------------------|------------------------------------|-----------------------------------|-----------------------------------|------------|------------|------------|------------|------------|------------|------------|------------|-------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
+| 0 | 07/02 - 07/08 | 983.0     | 14% orderers(136), 14% first-time(136) |                                    |                                    |                                    |                                   |                                   |            |            |            |            |            |            |            |            |             |              |              |              |              |              |              |              |              |              |              |              |              |
+| 1 | 06/25 - 07/01 | 781.0     | 16% orderers(123), 16% first-time(123) | 3% orderers(23), 2% first-time(12) |                                    |                                    |                                   |                                   |            |            |            |            |            |            |            |            |             |              |              |              |              |              |              |              |              |              |              |              |              |
+| 2 | 06/18 - 06/24 | 946.0     | 18% orderers(168), 18% first-time(168) | 5% orderers(44), 2% first-time(16) | 2% orderers(15), 0% first-time(3)  |                                    |                                   |                                   |            |            |            |            |            |            |            |            |             |              |              |              |              |              |              |              |              |              |              |              |              |
+| 3 | 06/11 - 06/17 | 1066.0    | 17% orderers(177), 17% first-time(177) | 5% orderers(51), 2% first-time(18) | 4% orderers(46), 1% first-time(11) | 2% orderers(18), 0% first-time(3)  |                                   |                                   |            |            |            |            |            |            |            |            |             |              |              |              |              |              |              |              |              |              |              |              |              |
+| 4 | 06/04 - 06/10 | 858.0     | 14% orderers(121), 14% first-time(121) | 5% orderers(39), 2% first-time(19) | 4% orderers(37), 1% first-time(8)  | 3% orderers(29), 1% first-time(9)  | 2% orderers(20), 1% first-time(7) |                                   |            |            |            |            |            |            |            |            |             |              |              |              |              |              |              |              |              |              |              |              |              |
+| 5 | 05/28 - 06/03 | 972.0     | 15% orderers(148), 15% first-time(148) | 5% orderers(48), 1% first-time(12) | 5% orderers(48), 2% first-time(18) | 4% orderers(41), 1% first-time(11) | 4% orderers(39), 1% first-time(5) | 1% orderers(11), 0% first-time(0) |            |            |            |            |            |            |            |            |             |              |              |              |              |              |              |              |              |              |              |              |              |
 
 ----------------------------  
-#### Analysis
+## Analysis
 
 If we look at the number of new registered users over the 27 cohorts between January 1, 2015 and July 8, 2015, we can see some spikes in registration around New Year's, the end of January and early March; along with a steady stream of registrations over the late spring/early summer months. 
 
-![](registered_users.svg)  
+![](images/registered_users.svg)  
 
 If we look more closely at each the days following each cohort's initial user registration period, we can see in 0-6 days all orders are first-time orders for new users. As well as, the proportion of tests ordered out of total registered users from that cohort in the first 7 days varies between 7.5-22%.  
 
-![](0-6days_orders.svg)  
+![](images/0-6days_orders.svg)  
 
 When we look at the next time frame of 7-13 days after a user has registered with the system, there are still quite a few first time orders (1-4% of orderers); however, there are also quite a few orders from existing customers whose first order was placed in the 0-6 day timeframe.  
 
-![](7-13days_orders.svg)  
+![](images/7-13days_orders.svg)  
 
 ----------------------
 
+## Final Words
 Thank you for your time and this opportunity.<br>
 Sincerely,<br>
 Samantha Buck<br>
