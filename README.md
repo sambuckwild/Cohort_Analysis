@@ -70,17 +70,30 @@ Please follow along in this [jupyter notebook](notebooks/Cohort-Analysis-Samanth
 ----------------------------  
 ## Analysis
 
-If we look at the number of new registered users over the 27 cohorts between January 1, 2015 and July 8, 2015, we can see some spikes in registration around New Year's, the end of January and early March; along with a steady stream of registrations over the late spring/early summer months. 
+**User Registration**  
+If we look at the number of new registered users over the 27 cohorts between January 1, 2015 and July 8, 2015, we can see some spikes in registration around New Year's, the end of January and early March; along with a steady stream of registrations over the late spring/early summer months.  
+
+If we see similar spikes around these times in the following years, marketing should be aimed at New Year's health resolutions - many people wanting to focus on their health for the year, patients may have new health coverage that can help with test costs, and companies/physicians will have a new budget for the year that they can now allocate funds to more genetic testing.
 
 ![](images/registered_users.svg)  
 
-If we look more closely at each the days following each cohort's initial user registration period, we can see in 0-6 days all orders are first-time orders for new users. As well as, the proportion of tests ordered out of total registered users from that cohort in the first 7 days varies between 7.5-22%.  
+**User Registration versus Order Placed**  
+
+We may have a lot of users registering over the year, but we don't sell a test until a user places an order. We can then look at the order rate among each cohort to determine if there is a pattern of users ordering within the first 0-6 days, 7-13 days, etc. and how many are first-time orders versus customers who order more than one test.  
+
+If we look at the period of 0-6 days after a user has registered, all these distinct user orders will be first-time orders since this is only the first week after registering. Once we go to the following periods of 7-13 days and so on, we will be able to see a split between first-time and additional orders.  
+
+By looking at the first 0-6 and 7-13 day periods after registration, we can see that the order rate is only about 8.5 - 26% of customers. This is not a very high order rate and thus this is where Invitae should focus on getting users to place orders soon after registering. 
 
 ![](images/0-6days_orders.svg)  
 
-When we look at the next time frame of 7-13 days after a user has registered with the system, there are still quite a few first time orders (1-4% of orderers); however, there are also quite a few orders from existing customers whose first order was placed in the 0-6 day timeframe.  
+![](images/7-13days_orders.svg)    
 
-![](images/7-13days_orders.svg)  
+When we look at the next time frame of 7-13 days after a user has registered with the system, there are still quite a few orders from existing customers whose first order was placed in the 0-6 day timeframe (1-4%). But what we are really interested in is the amount of registered users who never placed an order in the six months of data, and how to convert them to active users of Invitae.  
+
+On the following plot we can see there are a lot of registered users who still have not ordered a test and need to be converted to active users.  
+
+![](images/total_orders.svg)
 
 ----------------------
 
